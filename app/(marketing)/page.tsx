@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import Logo from "../bqtea-logo.svg";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -34,8 +36,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Mountain className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">Boquetea</span>
+            <Image src={Logo} alt="Logo" width={160} height={160} />
           </div>
 
           {/* Navigation Links */}
@@ -67,7 +68,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-card to-background">
         {/* Background Image */}
-        <div className="absolute inset-0 bg-[url('/beautiful-mountain-landscape-of-boquete-panama-wit.png')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/beautiful-mountain-landscape-of-boquete-panama-wit.png')] bg-cover bg-center "></div>
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <Badge
