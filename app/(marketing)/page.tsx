@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import Logo from "../bqtea-logo.svg";
-import Image from "next/image";
+
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -9,24 +9,27 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import {
-  MapPin,
-  Search,
-  Filter,
-  Mountain,
-  Camera,
-  Utensils,
-  TreePine,
-  Star,
-  Phone,
-  Mail,
   ArrowRight,
-  Users,
-  DollarSign,
+  Camera,
   CheckCircle,
+  DollarSign,
+  Mail,
+  MapPin,
+  MapPinned,
+  Mountain,
+  Phone,
+  Search,
+  Sparkles,
+  Star,
+  TreePine,
+  Users,
+  Utensils,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import Logo from "../bqtea-logo.svg";
+import { Toggle } from "@/components/ui/toggle";
 
 export default function HomePage() {
   return (
@@ -68,41 +71,50 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-card to-background">
         {/* Background Image */}
-        <div className="absolute inset-0 bg-[url('/beautiful-mountain-landscape-of-boquete-panama-wit.png')] bg-cover bg-center "></div>
+        <div className="absolute inset-0 bg-[url('/beautiful-mountain-landscape-of-boquete-panama-wit.png')] bg-cover bg-center opacity-20"></div>
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <Badge
             variant="secondary"
-            className="mb-4 bg-accent/20 text-accent-foreground"
+            className="mb-4 bg-primary/80 text-accent-foreground"
           >
-            Descubre Boquete, Chiriquí
+            <MapPin />
+            Boquete, Chiriquí
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
-            Tu Aventura en la Naturaleza
-            <span className="text-primary block">Comienza Aquí</span>
+            Descubre todo lo que Boquete
+            <span className="text-primary block">tiene para ti</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-            Explora los lugares más increíbles de Boquete con nuestro mapa
-            interactivo. Desde senderos de montaña hasta cafeterías locales,
-            encuentra tu próxima aventura.
+            Consulta con nuestro asistente inteligente para conocer todas las
+            opciones disponibles para tu aventura
           </p>
 
-          {/* Search Bar */}
+          {/* Search Component */}
+
           <div className="max-w-2xl mx-auto mb-8">
             <Card className="p-4">
+              {/* Filters */}
+              <div className="flex gap-1">
+                <Toggle variant={"outline"}>Pet Friendly</Toggle>
+                <Toggle variant={"outline"}>Mujeres emprendedoras</Toggle>
+                <Toggle variant={"outline"}>Adultos Mayores</Toggle>
+                <Toggle variant={"outlineBadge"}>Familias</Toggle>
+              </div>
+              {/* Search bar */}
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                  <Sparkles className="text-primary absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
                   <Input
                     placeholder="¿Qué quieres explorar en Boquete?"
                     className="pl-10"
                   />
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm">
+                  {/* <Button variant="outline" size="sm">
                     <Filter className="h-4 w-4 mr-2" />
                     Filtros
-                  </Button>
+                  </Button> */}
                   <Button className="bg-primary hover:bg-primary/90">
                     <Search className="h-4 w-4 mr-2" />
                     Buscar
@@ -114,7 +126,7 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-primary hover:bg-primary/90">
-              <MapPin className="h-5 w-5 mr-2" />
+              <MapPinned className="h-5 w-5 mr-2" />
               Explorar Mapa Interactivo
             </Button>
             <Button size="lg" variant="outline">
