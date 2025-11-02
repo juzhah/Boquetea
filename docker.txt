@@ -1,0 +1,6 @@
+docker run \
+-dp 5432:5432 \
+--name drizzle-postgres \
+-e POSTGRES_PASSWORD=mypassword \
+--volume boquetea-dev:/var/lib/postgresql \
+postgres
